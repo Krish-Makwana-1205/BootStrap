@@ -1,0 +1,10 @@
+.blue{
+    background-color: rgba(0, 0, 255, 0.543);
+}
+.red{
+    background-color: rgba(255, 0, 0, 0.459);
+}
+#buffer{
+    height: 20vh;
+    width: 20vh;
+}
