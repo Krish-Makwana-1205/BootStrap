@@ -1,27 +1,37 @@
 // let iid = document.getElementById("ID");
 // let iname = document.getElementById("Name");
 // let irate = document.getElementById("Rate");
+let arr = [];
 let count = 1;
+let obj = {
+    docid : document.getElementById("row1")
+};
+arr.push(obj);
 function change(event) {
-    let x = event.target.className[13];
     let iid = document.getElementById("ID");
     let iname = document.getElementById("Name");
     let irate = document.getElementById("Rate");
-    let oid = document.getElementById("ID" + x);
-    let oname = document.getElementById("Name" + x);
-    let orate = document.getElementById("Rate" + x);
-    oid.innerHTML = iid.value;
-    oname.innerHTML = iname.value;
-    orate.innerHTML = irate.value;
+    for(let i = 0; i < count; ++i){
+        if(event.target.parentElement.parentElement == arr[i].docid){
+            console.log(arr[i].docid.childNodes[0]);
+            arr[i].docid.childNodes[0].innerHTML = iid.value;
+            arr[i].docid.childNodes[1].innerHTML = iname.value;
+            arr[i].docid.childNodes[2].innerHTML = irate.value;
+            break;
+        }
+    }
 }
 function add(x) {
     let iid = document.getElementById("ID");
     let iname = document.getElementById("Name");
     let irate = document.getElementById("Rate");
     ++count;
-    let Newr = document.createElement("div");
+    let dets = {};
+    Newr = document.createElement("div");
+    dets.docid=Newr;
+    arr.push(dets);
     Newr.setAttribute("class", "row");
-    Newr.setAttribute("id", "row" + (count))
+    Newr.setAttribute("id", "row");
     let col1 = document.createElement("div");
     let col2 = document.createElement("div");
     let col3 = document.createElement("div");
@@ -30,25 +40,20 @@ function add(x) {
     let editb = document.createElement("button");
     let deleteb = document.createElement("button");
     col1.setAttribute("class", "col");
-    col1.setAttribute("id", "ID" + (count));
     col1.innerHTML = iid.value;
     col2.setAttribute("class", "col");
-    col2.setAttribute("id", "Name" + (count));
     col2.innerHTML = iname.value;
     col3.setAttribute("class", "col");
-    col3.setAttribute("id", "Rate" + (count));
     col3.innerHTML = irate.value;
     col4.setAttribute("class", "col");
-    console.log("run");
     editb.addEventListener("click", change);
     console.log(count);
-    editb.setAttribute("class", "btn btn-info" + " " + count);
-    console.log("run");
+    editb.setAttribute("class", "btn btn-info");
     editb.innerHTML = "Edit";
     col4.appendChild(editb);
     col5.setAttribute("class", "col");
     deleteb.addEventListener("click", Delete);
-    deleteb.setAttribute("class", "btn btn-danger" + " " + count);
+    deleteb.setAttribute("class", "btn btn-danger");
     deleteb.innerHTML = "Delete";
     col5.appendChild(deleteb);
     Newr.appendChild(col1);
@@ -59,8 +64,12 @@ function add(x) {
     document.body.appendChild(Newr)
 }
 function Delete(event) {
+    event.target.parentElement.parentElement.remove();
+    for(let i = 0; i < count; ++i){
+        if(event.target.parentElement.parentElement == arr[i].docid){
+            arr.splice(count, count);
+            break;
+        }
+    }
     --count;
-    console.log(event.target.className);
-    let deli = document.getElementById("row" + event.target.className[15]);
-    deli.remove();
 }
