@@ -11,39 +11,33 @@
 </head>
 
 <body>
-  <h3>Input here</h3>
+  <div class = "buffer">
+    <!-- Buffer -->
+  </div>
+  </div>
+  <h3 class = "Header">Data here</h3>
+  <a href = "Addpage.html">
+    <button class = "btn btn-success">Add</button>
+  </a>
+  <button class = 'btn btn-primary' onclick="render()">Refresh</button>
+  <div class = "buffer">
+    <!-- Buffer -->
+  </div>
   <div class="row">
     <div class="col blue">ID</div>
     <div class="col blue">Name</div>
     <div class="col blue">Rate</div>
-    <div class="col blue"></div>
-    <div class="col blue"></div>
+    <div class="col blue">Edit</div>
+    <div class="col blue">Delete</div>
   </div>
-  <div class="row">
-    <div class="col"><input id = "ID"></div>
-    <div class="col"><input id = "Name"></div>
-    <div class="col"><input id = "Rate"></div>
-    <div class = "col"><button class = "btn btn-success" onclick = "add()">Add</button></div>
-    <div class="col"></div>
-  </div>
-  <div id = "buffer">
-
-  </div>
-  <h3>Data here</h3>
-  <div class="row">
-    <div class="col blue">ID</div>
-    <div class="col blue">Name</div>
-    <div class="col blue">Rate</div>
-    <div class="col blue"></div>
-    <div class="col blue"></div>
-  </div>
-  <div class="row" id = "row1">
+  <div id  = "ref"></div>
+  <!-- <div class="row" id = "row1">
     <div class="col" id="ID1">101</div>
     <div class="col" id="Name1">Dettol</div>
     <div class="col" id="Rate1">70</div>
     <div class="col"><button class="btn btn-info 1" onclick="change(event)">Edit</div>
     <div class="col"><button class="btn btn-danger 1" onclick="Delete(event)">Delete</div>
-  </div>
+  </div> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
