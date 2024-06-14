@@ -1,12 +1,16 @@
 //localStorage['0'] = '0';
+let count = 1;
 function render(){
     //localStorage.clear();
     let x;
-    for(let i = 1; i <= localStorage.length; ++i){
-        x = JSON.parse(localStorage.getItem(i+1));
+    console.log(localStorage.length);
+    for(let i = count; i <= localStorage.length; ++i){
+        x = JSON.parse(localStorage.getItem(i));
+        console.log(x);
         if(x != null){
             make(x); 
         }
+        ++count;
     }
     //localStorage.setItem('0','0');
 }
@@ -66,10 +70,19 @@ function add(){
 }
 function Delete(event) {
     //localStorage.clear();
-    for(let i = 1; i <= localStorage.length-1; ++i){
-        x = JSON.parse(localStorage.getItem(i+1));
+    for(let i = 1; i <= localStorage.length; ++i){
+        x = JSON.parse(localStorage.getItem(i));
+        console.log(x.id);
         if(x.id == event.target.parentElement.parentElement.childNodes[0].innerHTML){
-            localStorage.removeItem(i+1);
+            localStorage.removeItem(i);
+            console.log("I run");
+            console.log(i+1);
+            console.log(localStorage.length+1);
+            for(let j = i+1; j <= localStorage.length+1; ++j){
+                localStorage.setItem(j-1, localStorage.getItem(j));
+                console.log(JSON.parse(localStorage.getItem(j-1)))
+                localStorage.removeItem(j);
+            }
         }
     }
     event.target.parentElement.parentElement.remove();
