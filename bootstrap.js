@@ -1,6 +1,11 @@
 //localStorage['0'] = '0';
 let count = 1;
+document.onload = render();
 function render(){
+    if(document.title != "Bootstrap demo"){
+        return ;
+    }
+    console.log(document.title);
     //localStorage.clear();
     let x;
     console.log(localStorage.length);
@@ -51,6 +56,7 @@ function make(x){
     document.body.insertBefore(newr, ref);
 }
 function add(){
+    console.log(document.title);
     let id = document.getElementById("ID");
     let name = document.getElementById("name");
     let rate = document.getElementById("rate");
