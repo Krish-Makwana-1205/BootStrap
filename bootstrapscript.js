@@ -2,6 +2,8 @@
 let count = 1;
 document.onload = render();
 function render() {
+    let mynodelist = document.querySelectorAll("div");
+    console.log(mynodelist);
     if (document.title != "Bootstrap demo") {
         return;
     }
